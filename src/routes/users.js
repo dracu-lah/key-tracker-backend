@@ -141,7 +141,7 @@ router.post("/", body("email").isEmail(), async (req, res) => {
 
   try {
     const { email } = req.body;
-    const tempPassword = Math.random().toString(36).slice(-8);
+    const tempPassword = "password123";
     const hashedPassword = await bcrypt.hash(tempPassword, 10);
 
     const result = await req.db.run(
