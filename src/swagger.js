@@ -1,7 +1,7 @@
 // backend/src/swagger.js
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
-
+const path = require("path");
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -25,7 +25,7 @@ const options = {
       },
     ],
   },
-  apis: ["./routes/*.js"], // Path to the API route files
+  apis: [path.join(__dirname, "routes/*.js")], // Ensure correct path
 };
 
 const specs = swaggerJsdoc(options);
